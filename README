@@ -1,3 +1,26 @@
 This is codeigniter based income and expense tracker
 
-a simple one to start with 
+
+Contains menu
+
+Add Masters
+	User_master
+		columns
+			id,name,password,date_added,date_modified,status
+	Category Master (To add and edit categories)
+		columns
+			id,name,date_added,date_modified,status
+	Company Master (To add and edit companies)
+		columns
+			Id,Name,date_added,date_modified,status
+	Transactions
+		columns
+			id,type(income/expense),amount,category_id,company_id,added_by,date_added,date_modified
+
+
+Add Transaction
+
+Reports
+	Company wise reports
+	Category wise reports
+

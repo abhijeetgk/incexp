@@ -5,6 +5,8 @@ class Welcome extends MY_Controller {
 	
 	public function index()
 	{
+		$this->config->load("incexp");
+		$data['menu']=$this->config->item("menu");
 		$data['title']='Page Title';
 		$this->data=$data;
 		$this->layout_folder="layout";

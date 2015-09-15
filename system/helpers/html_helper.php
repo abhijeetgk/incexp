@@ -371,6 +371,24 @@ if ( ! function_exists('link_tag'))
 	}
 }
 
+if( ! function_exists('js')){
+	function js($src='',$index_page=false){
+		if(!$src) return false;
+		$link = '<script language="javascript" type="text/javascript" ';
+		$CI =& get_instance();
+		if ( strpos($src, '://') !== FALSE){
+				$link .= 'src="'.$src.'" ';
+		}
+		elseif ($index_page === TRUE){
+			$link .= 'src="'.$CI->config->site_url($src).'" ';
+		}
+		else{
+			$link .= 'src="'.$CI->config->slash_item('base_url').$src.'" ';
+		}
+		$link.=" ></script>";
+		return $link;
+	}
+}
 // ------------------------------------------------------------------------
 
 /**
