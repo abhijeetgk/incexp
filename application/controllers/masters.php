@@ -4,8 +4,11 @@ class Masters extends MY_Controller {
 
 
 	public function company(){
-
+		$this->load->library('Common');
+		$this->common->chcek_login();
 		$this->config->load("incexp");
+		$session_data = $this->session->userdata('logged_in');
+		$data['username'] = $session_data['username'];
 		$data['menu']=$this->config->item("menu");
 		$data['project_name']=$this->config->item('project_name');
 		$this->load->model('company_model','cm');
@@ -20,7 +23,7 @@ class Masters extends MY_Controller {
 			redirect('/masters/company');
 			}
 		}
-		$company_data=$this->cm->get_companies();
+		$company_data=$this->cm->get_companies(10);
 		$data['company_data']=$company_data;
 		$this->data=$data;
 		$this->layout_folder="layout";
@@ -29,7 +32,11 @@ class Masters extends MY_Controller {
 	}
 
 	public function category(){
+		$this->load->library('Common');
+		$this->common->chcek_login();
 		$this->config->load("incexp");
+		$session_data = $this->session->userdata('logged_in');
+		$data['username'] = $session_data['username'];
 		$data['menu']=$this->config->item("menu");
 		$data['project_name']=$this->config->item('project_name');
 		$this->load->model('category_model','ctm');
@@ -43,7 +50,7 @@ class Masters extends MY_Controller {
 			redirect('/masters/category');
 			}
 		}
-		$category_data=$this->ctm->get_categories();
+		$category_data=$this->ctm->get_categories(10);
 		$data['category_data']=$category_data;
 		$this->data=$data;
 		$this->layout_folder="layout";

@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default">
+<nav class="">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -27,11 +27,13 @@
               </li>
               <?php } ?>
             </ul>
-            <!-- <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-              <li><a href="../navbar-static-top/">Static top</a></li>
-              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-            </ul> -->
+            <?php if (isset($username)){ ?>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a>Welcome <?php echo $username;?>&nbsp;</a></li>
+              <li><a href="<?php echo site_url('logout');?>">Logout</a></li>
+            </ul>
+            <?php } ?>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+

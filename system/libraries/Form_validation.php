@@ -1116,7 +1116,21 @@ class CI_Form_validation {
 	}
 
 	// --------------------------------------------------------------------
+	// --------------------------------------------------------------------
 
+	/**
+	 * Alpha-numeric
+	 *
+	 * @access	public
+	 * @param	string
+	 * @return	bool
+	 */
+	function alpha_dash_space($str)
+	{
+    	return ( ! preg_match("/^([-a-z0-9_ ])+$/i", $str)) ? FALSE : TRUE;
+	} 
+
+	// --------------------------------------------------------------------
 	/**
 	 * Alpha-numeric with underscores and dashes
 	 *

@@ -34,6 +34,7 @@ class Migration_add_incexp extends CI_Migration{
 		$this->dbforge->add_field("id INT NOT NULL AUTO_INCREMENT");
 		$this->dbforge->add_field("type enum('inc','exp') NOT NULL DEFAULT 'inc' ");
 		$this->dbforge->add_field("amount float");
+		$this->dbforge->add_field("description varchar(255)");
 		$this->dbforge->add_field("category_id INT ");
 		$this->dbforge->add_field("company_id INT ");
 		$this->dbforge->add_field("added_by INT ");

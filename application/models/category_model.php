@@ -10,9 +10,21 @@ class Category_model extends CI_Model {
 		$data['date_modified']=date("Y-m-d h:i:s");
 		$this->db->insert("category_master",$data);
 	}
-	function get_categories(){
+	function get_categories($limit=0){
 		$this->db->order_by('date_modified','desc');
-		$query=$this->db->get("category_master",10);
+		if($limit>0)
+			$query=$this->db->get("category_master",$limit);
+		else 
+			$query=$this->db->get("category_master");
 		return $query->result();
+	}
+	function get_category_report(){
+		$this->db->start_cache();
+		$res['count']=$this->db->count_all('category_master');
+		$this->db->select('*')->from('category_master')->where('date_added >','SUBDATE(NOW(),1)',FALSE);
+		$data1=$this->db->count_all_results();
+		$res['data']=$data1;
+		$this->db->stop_cache();
+		return $res;
 	}
 }

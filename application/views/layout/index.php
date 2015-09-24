@@ -8,17 +8,17 @@
  ?>
 </head>
 <body>
-<div class="container"><!-- container -->
-	 <?php if(isset($header) && $header!="") echo $header ;?>
+<div class=""><!-- container -->
+	 <?php if(isset($header) && $header!="") echo "<div class='container navbar navbar-default'>".$header."</div>" ;?>
 	 <?php if(isset($left) && $left!="") echo $left ;?>
 	 <?php if(isset($middle)&& $middle!="") { ?>
-	 <div style="padding:10px; border:1px solid #ccc; float:left;">
+	 <div style="border:1px solid #ccc; " class="container">
 	 	<?php echo $middle;?>
 	 </div>
 	 <?php } ?>
-	 <div>
-	 <?php if(isset($footer) && $footer !="") echo $footer ;?>
-	 </div>
+	 
+	 <?php if(isset($footer) && $footer !="") echo "<div class='container'>".$footer."</div>" ;?>
+	 
  </div><!-- container -->
  <?php
 	echo js("https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js");
