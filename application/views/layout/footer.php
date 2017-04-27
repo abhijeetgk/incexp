@@ -1,2 +1,2 @@
-<div style="clear:both">&copy;Copyright <?php echo date("Y"); ?>
+<div style="clear:both">&copy; Copyright INCEXP <?php echo date("Y"); ?>
 </div>
